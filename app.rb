@@ -2,31 +2,34 @@ require 'sinatra'
 require "sinatra/reloader" if development? 
 
 get '/' do
-    "hello!"
+  "hello!"
 end
 
 get '/secret' do
-    "Shh secret"
+  "Shh secret"
 end
 
 get '/new' do
-    "NEW PAGE"
+  "NEW PAGE"
 end
 
 get '/random-cat' do
-    @name = ["Amigo", "Misty", "Almond"].sample
-    erb(:index)
+  @name = ["Amigo", "Misty", "Almond"].sample
+  erb(:index)
 end
 
 get '/cat-form' do
-    erb(:cat_form)
+  erb(:cat_form)
 end
 
-get '/named-cat' do
-    p params
-    @name = params[:name]
-    erb(:index)
+post '/named-cat' do
+  p params
+  @name = params[:name]
+  erb(:index)
 end
 
-
-
+# get '/named-cat' do
+#   p params
+#   @name = params[:name]
+#   erb(:index)
+# end
